@@ -1,0 +1,17 @@
+__pycache__/parameters.cpython-38.pyc
+__pycache__/Process_ARM.cpython-38.pyc
+__pycache__/thermodynamic_functions.cpython-38.pyc
+files/ARM_ocean_pooled.nc
+files/CACTI_pooled.nc
+files/GoAmazon_pooled.nc
+files/plume_properties_ARM_oceans.nc
+files/plume_properties_CACTI.nc
+files/plume_properties_GoAmazon.nc
+files/plume_properties_SGP.nc
+files/SGP_pooled.nc
+plots/ARM_oceans_VWS_analysis.pdf
+plots/CACTI_theta_profiles.pdf
+plots/GoAmazon_CACTI_comp.pdf
+plots/P_BL_components_ARM_oceans.pdf
+precip_buoy_diag_setup_cython.py
+parameters.py
