@@ -15,3 +15,13 @@ plots/GoAmazon_CACTI_comp.pdf
 plots/P_BL_components_ARM_oceans.pdf
 precip_buoy_diag_setup_cython.py
 parameters.py
+Download_ARM_data.ipynb
+__pycache__/Plot_buoy_statistics.cpython-38.pyc
+__pycache__/Plot_Buoyancy_Statistics.cpython-38.pyc
+__pycache__/Preprocess_precipbuoy_plotting.cpython-38.pyc
+P_BL_statistics_TWPC3.pdf
+plume_model_ARM.py
+.ipynb_checkpoints/Analyze_ARM_Oceans_notebook-checkpoint.ipynb
+.ipynb_checkpoints/Analyze_ARM_Oceans-checkpoint.ipynb
+.ipynb_checkpoints/Download_ARM_data-checkpoint.ipynb
+.ipynb_checkpoints/Analyze_ARM_Ocns-checkpoint.ipynb
