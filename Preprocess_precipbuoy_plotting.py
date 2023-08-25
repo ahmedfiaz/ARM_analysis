@@ -13,9 +13,9 @@ pcp_bins = np.insert(pcp_bins,0,1e-3)
 pcp_bins = np.insert(pcp_bins,0,0)
 pcp_bin_center = (pcp_bins[1:]+pcp_bins[:-1])*0.5
 
-subsat_bins = np.arange(0., 30., 1.5)
+subsat_bins = np.arange(0., 32., 1.5)
 instab_bins = np.arange(-40., 16, 1.5)
-buoy_bins = np.arange(-20.,4.5,0.5) * 9.8/340.
+buoy_bins = np.arange(-20.,5.,1.) * 9.8/340.
 
 buoy_bin_center=(buoy_bins[1:]+buoy_bins[:-1])*0.5
 
