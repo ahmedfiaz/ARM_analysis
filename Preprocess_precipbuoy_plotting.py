@@ -8,14 +8,14 @@ from matplotlib.ticker import MaxNLocator
 
 
 # Create bins for plotting
-pcp_bins = 2**(np.arange(-2.,7.75,0.125))
+pcp_bins = 2 ** (np.arange(-2.,7.75,0.125))
 pcp_bins = np.insert(pcp_bins,0,1e-3)
 pcp_bins = np.insert(pcp_bins,0,0)
 pcp_bin_center = (pcp_bins[1:]+pcp_bins[:-1])*0.5
 
-subsat_bins = np.arange(0., 32., 1.5)
-instab_bins = np.arange(-40., 16, 1.5)
-buoy_bins = np.arange(-20.,5.,1.) * 9.8/340.
+subsat_bins = np.arange(0., 32., 2.5)
+instab_bins = np.arange(-40., 25, 2.5)
+buoy_bins = np.arange(-50.,5.,4.) * 9.8/340.
 
 buoy_bin_center=(buoy_bins[1:]+buoy_bins[:-1])*0.5
 
@@ -40,7 +40,7 @@ class BuoyPrecip:
 
     def __add__(self, other):
         """
-        dunder magic to pool data together
+        dunder method to pool data
         """
         if isinstance(other, BuoyPrecip):
 
@@ -66,8 +66,8 @@ class BuoyPrecip:
 
         for i in np.arange(xbins.size):
             indx = np.where(xind==i)[0]
-            ybinned[i] += np.nansum(y[indx])
-            xhist[i] = xhist[i]+indx.size
+            ybinned[i] = np.nansum(y[indx])
+            xhist[i] = indx.size
             ystd[i] = np.nanstd(y[indx])
         
         return ybinned, xhist, ystd
@@ -78,7 +78,7 @@ class BuoyPrecip:
         
     def plot_precip_buoy(self, ax, buoy_bins = buoy_bins, **plot_params):
         
-        conditional_mean =  np.ma.masked_where(self.buoy_hist_1D<20, 
+        conditional_mean =  np.ma.masked_where(self.buoy_hist_1D<5, 
                                                self.pcp_binned_1D/self.buoy_hist_1D)
         std_err = self.pcp_binned_std/np.sqrt(self.buoy_hist_1D)
 
@@ -145,9 +145,7 @@ class BuoyPrecip:
 
         CT = ax.pcolormesh(subsat_bins, instab_bins, pr_conditional_mean, 
                       cmap = new_cmap, norm = norm)
-        # ax.tick_params(which='both', labelsize=11)
         ax.set_xlabel(plot_params['xlabel'], fontsize = 11)
-        # ax.set_ylabel(plot_params['ylabel'], fontsize = 11)
 
         cb = plt.colorbar(CT)
         cb.ax.tick_params(which='both',labelsize=12)
